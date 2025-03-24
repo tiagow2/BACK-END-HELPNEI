@@ -1,10 +1,14 @@
 const express = require('express');
+<<<<<<< HEAD
 const db = require('./db');
+=======
+>>>>>>> 4437415d57e0ea13cbfc4e93b2897cb684f5d50e
 const path = require('path');
 
 const app = express();
 const port = 3000;
 
+<<<<<<< HEAD
 app.use(express.json()); 
 
 app.use(express.static(path.join(__dirname, 'helpnei', '..','..', '..', 'Front')));
@@ -43,9 +47,19 @@ app.get('/usuarioteste', (req, res) => {
       });
     }
   });
+=======
+app.use(express.static(path.join(__dirname, '..', '..', 'FRONT-END-HELPNEI', 'dist')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', '..', 'FRONT-END-HELPNEI', 'dist', 'index.html'));
+>>>>>>> 4437415d57e0ea13cbfc4e93b2897cb684f5d50e
 });
 
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 4437415d57e0ea13cbfc4e93b2897cb684f5d50e
