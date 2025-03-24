@@ -1,15 +1,17 @@
 const express = require('express');
 const db = require('./db');
+const path = require('path');
 
 const app = express();
 const port = 3000;
 
 app.use(express.json()); 
 
-app.get('/', (req, res) => {
-  res.send('Aqui será a pagina do projeto');
-});
+app.use(express.static(path.join(__dirname, 'helpnei', '..','..', '..', 'Front')));
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'helpnei', '..','..', '..', 'Front', 'index.html'));
+});
 //primeiro ele busca um usuário, se não tiver, ele insere um usuário teste.
 app.get('/usuarioteste', (req, res) => {
   db.query('SELECT COUNT(*) AS count FROM User', (err, results) => {
@@ -45,5 +47,5 @@ app.get('/usuarioteste', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`O link do projeto: http://localhost:${port}`);
+  console.log(`Servidor rodando em http://localhost:${port}`);
 });
